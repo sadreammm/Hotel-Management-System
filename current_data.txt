@@ -13,7 +13,7 @@ Suite
 104
 Single
 50
-0
+1
 105
 Double
 75

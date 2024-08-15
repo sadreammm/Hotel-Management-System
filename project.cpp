@@ -45,6 +45,7 @@ int main() {
             string name, checkInDate;
             int roomNo;
             cout << "Enter customer name: ";
+            cin.ignore();
             getline(cin, name);
             cout << "Enter check-in date (YYYY-MM-DD): ";
             cin >> checkInDate;

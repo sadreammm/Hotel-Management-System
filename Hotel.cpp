@@ -14,14 +14,8 @@ int Hotel::initialize(string filename) {
 	double price;
 	bool isAvailable;
 	while (in >> roomNo >> type >> price >> isAvailable) {
-		if (roomCount < 100) {
-			rooms[roomCount] = Room(roomNo, type, price, isAvailable);
-			roomCount++;
-		}
-		else {
-			cout << "Limit Reached" << endl;
-			break;
-		}
+		rooms.push_back(Room(roomNo, type, price, isAvailable));
+		roomCount++;
 	}
 	in.close();
 	return 0;
@@ -42,16 +36,11 @@ void Hotel::checkIn(Customer& cust, string checkInDate, int roomNo) {
 	for (int i = 0; i < roomCount; i++) {
 		if (rooms[i].getRoomNo() == roomNo && rooms[i].getIsAvailable()) {
 			rooms[i].setIsAvailable(false);
-			if (customerCount < 100) {
-				cust.setRoomNo(roomNo);
-				cust.setCheckIn(checkInDate);
-				customers[customerCount] = cust;
-				customerCount++;
-				cout << "Checked in " << cust.getName() << " in room number " << roomNo << " on " << checkInDate << endl;
-			}
-			else {
-				cout << "Limit Reached" << endl;
-			}
+			cust.setRoomNo(roomNo);
+			cust.setCheckIn(checkInDate);
+			customers.push_back(cust);
+			customerCount++;
+			cout << "Checked in " << cust.getName() << " in room number " << roomNo << " on " << checkInDate << endl;
 			return;
 		}
 	}

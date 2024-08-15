@@ -7,14 +7,15 @@
 #include "Room.h"
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 class Customer;
 using namespace std;
 
 class Hotel {
 	private:
-		Room rooms[100];
-		Customer customers[100];
+		vector<Room> rooms;
+		vector<Customer> customers;
 		static int roomCount;
 		static int customerCount;
 		int calculateDays(string, string);
